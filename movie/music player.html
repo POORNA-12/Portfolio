@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Music Player</title>
+<style>
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.playlist {
+  border: 2px solid #1dfef7;
+  background-color: #ade1f3;
+  border-radius: 10px;
+}
+
+.header {
+  background-color: hsl(62, 78%, 46%);
+  color: #fff;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 120px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+}
+
+.content {
+  padding: 20px;
+}
+
+.content h3 {
+  margin-top: 0;
+}
+
+.content h4 {
+  margin-bottom: 5px;
+}
+
+audio {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.search-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.search-input {
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  width: 60%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1dfef7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="search-container">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search for playlist...">
+    <button onclick="searchPlaylist()" class="search-button">Search</button>      
+</div>
+<div class="container">
+  <!-- Playlist 1: Mahesh Babu -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Mahesh Babu</h1>
+      <img src="photes\songs\1.jpeg" alt="Mahesh Babu">
+    </div>
+    <div class="content">
+      <h3>Songs from Mahesh Babu's Movies</h3>
+      <h4>Song 1:Aaradugulutada song</h4>
+      <audio controls>
+        <source src="songs/m1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Dole Dole song</h4>
+      <audio controls>
+        <source src="songs/m1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:bad boyz song</h4>
+      <audio controls>
+        <source src="songs/m1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song : Title of Song 4</h4>
+      <audio controls>
+        <source src="songs/m1.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Playlist 2: Allu Arjun -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Allu Arjun</h1>
+      <img src="photes\songs\2.jpeg"alt="Allu Arjun">
+    </div>
+    <div class="content">
+      <h3>Songs from Allu Arjun's Movies</h3>
+      <h4>Song 1:Feel my love song</h4>
+      <audio controls>
+        <source src="songs/a1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2: O Madhu song</h4>
+      <audio controls>
+        <source src="songs/a2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Egirey Mabbulona</h4>
+      <audio controls>
+        <source src="songs/a3.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Satte Era Satte song</h4>
+      <audio controls>
+        <source src="songs/a4.mp3"type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+  
+  <!-- Playlist 3: Jr. NTR -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Jr. NTR</h1>
+      <img src="photes\songs\3.jpeg"alt="Jr. NTR">
+    </div>
+    <div class="content">
+      <h3>Songs from Jr. NTR's Movies</h3>
+      <h4>Song 1:Banthi poola janaki song</h4>
+      <audio controls>
+        <source src="songs/j1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:jara jara song</h4>
+      <audio controls>
+        <source src="songs/j2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Nee Navvula song</h4>
+      <audio controls>
+        <source src="songs/j3.mp3"type="audio/mpeg">
+      </audio>
+      <h4>Song :Chandrakala song</h4>
+      <audio controls>
+        <source src="songs/j4.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+  
+  <!-- Playlist 4: Ram Charan -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Ram Charan</h1>
+      <img src="photes\songs\4.jpeg" alt="Ram Charan">
+    </div>
+    <div class="content">
+      <h3>Songs from Ram Charan's Movies</h3>
+      <h4>Song 1:Rooba Rooba song</h4>
+      <audio controls>
+        <source src="songs/r11.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Pimple Dimple song</h4>
+      <audio controls>
+        <source src="songs/r22.mp3"type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <h4>Song 3:Nee Jathaga song</h4>
+      <audio controls>
+        <source src="songs/r33.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <h4>Song :Jorse Jorse Song</h4>
+      <audio controls>
+        <source src="songs/r44.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+  
+  <!-- Playlist 5: Nani -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Nani</h1>
+      <img src="photes\songs\5.jpeg" alt="Nani">
+    </div>
+    <div class="content">
+      <h3>Songs from Nani's Movies</h3>
+      <h4>Song 1:Emaindo teliyadu Naaku song</h4>
+      <audio controls>
+        <source src="songs/n1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Ninnu kori song</h4>
+      <audio controls>
+        <source src="songs/n2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Adiga Adiga song</h4>
+      <audio controls>
+        <source src="songs/n3.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Ranga Rangeli song</h4>
+      <audio controls>
+        <source src="songs/n4.mp3"type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+  
+  <!-- Playlist 6: Thalapathi Vijay -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Thalapathi Vijay</h1>
+      <img src="photes\songs\6.jpeg"alt="Thalapathi Vijay">
+    </div>
+    <div class="content">
+      <h3>Songs from Thalapathi Vijay's Movies</h3>
+      <h4>Song 1:Halamithi Habibo Song</h4>
+      <audio controls>
+        <source src="songs/v1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Master coming Song</h4>
+      <audio controls>
+        <source src="songs/v2.mp3"type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Ranjithame song</h4>
+      <audio controls>
+        <source src="songs/v3.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Chinthamani Song</h4>
+      <audio controls>
+        <source src="songs/v4.mp3"type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Playlist 7: Nithin -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Nithin</h1>
+      <img src="photes\songs\7.jpeg" alt="Nithin">
+    </div>
+    <div class="content">
+      <h3>Songs from Nithin's Movies</h3>
+      <h4>Song 1:Ra ra reddy  i am ready Song</h4>
+      <audio controls>
+        <source src="songs/n11.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Lachchamma Song</h4>
+      <audio controls>
+        <source src="songs/n22.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Bus Stande Bus Stande Song</h4>
+      <audio controls>
+        <source src="songs/n33.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Single Anthem Song</h4>
+      <audio controls>
+        <source src="songs/n44.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Playlist 8: Chiranjeevi -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Chiranjeevi</h1>
+      <img src="photes\songs\8.jpeg" alt="Chiranjeevi">
+    </div>
+    <div class="content">
+      <h3>Songs from Chiranjeevi's Movies</h3>
+      <h4>Song 1:Ammadu lets do kummudu song</h4>
+      <audio controls>
+        <source src="songs/c1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:you and me Song</h4>
+      <audio controls>
+        <source src="songs/c2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Boss party Song</h4>
+      <audio controls>
+        <source src="songs/c3.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Neekemo Andamekkuva Song</h4>
+      <audio controls>
+        <source src="songs/c4.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Playlist 9: Pawan Kalyan -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Pawan Kalyan</h1>
+      <img src="photes\songs\9.jpeg"alt="Pawan Kalyan">
+    </div>
+    <div class="content">
+      <h3>Songs from Pawan Kalyan's Movies</h3>
+      <h4>Song 1:Bapu Gari Bommo Song</h4>
+      <audio controls>
+        <source src="songs/p1.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Time to party song</h4>
+      <audio controls>
+        <source src="songs/p2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Akasam Ammayaithe Song</h4>
+      <audio controls>
+        <source src="songs/p3.mp3"type="audio/mpeg">
+      </audio>
+      <h4>Song :mandu Baabulam song</h4>
+      <audio controls>
+        <source src="songs/p4.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Playlist 10: Ravi Teja -->
+  <div class="playlist">
+    <div class="header">
+      <h1>Ravi Teja</h1>
+      <img src="photes\songs\10.jpeg" alt="Ravi Teja">
+    </div>
+    <div class="content">
+      <h3>Songs from Ravi Teja's Movies</h3>
+      <h4>Song 1:Pyaar lona paagal Song</h4>
+      <audio controls>
+        <source src="songs/r1.mp3"type="audio/mpeg">
+      </audio>
+      <h4>Song 2:Dikka Dishum song</h4>
+      <audio controls>
+        <source src="songs/r2.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song 3:Atta Sudake Song</h4>
+      <audio controls>
+        <source src="songs/r3.mp3" type="audio/mpeg">
+      </audio>
+      <h4>Song :Gunna Gunna Mamidi Song</h4>
+      <audio controls>
+        <source src="songs/r4.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+</div>
+<script>
+  function playSong(audioElement) {
+      var playlists = document.querySelectorAll("audio");
+      playlists.forEach(function (audio) {
+          if (audio !== audioElement) {
+              audio.pause();
+          }
+      });
+      audioElement.play();
+  }
+
+  function searchPlaylist() {
+      var input = document.getElementById("searchInput").value.toLowerCase();
+      var playlists = document.querySelectorAll(".playlist");
+
+      playlists.forEach(function (playlist) {
+          var header = playlist.querySelector(".header");
+          var title = header.querySelector("h1").innerText.toLowerCase();
+          if (title.includes(input)) {
+              // Scroll to the playlist
+              playlist.scrollIntoView({ behavior: 'smooth' });
+              return;
+          }
+      });
+  }
+</script>
+</body>
+</html>
+ 
+        

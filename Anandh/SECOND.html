@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL tournament</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1512719994953-eabf50895df7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JpY2tldCUyMHN0YWRpdW18ZW58MHx8MHx8fDA%3D');
+            background-size: cover;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        .marquee {
+            width: 100%;
+            height: 100px;
+            font-size: 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .video-container, .team-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .team-images img {
+            height: 225px;
+            width: 225px;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .team-images img:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+        }
+        .live-scores {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .live-scores iframe {
+            width: 100%;
+            min-height: 460px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .team-images a {
+            display: inline-block;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .team-images img {
+            height: 225px;
+            width: 225px;
+            border-radius: 10px;
+        }
+
+        .team-images a:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+        }
+
+        .live-scores {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .live-scores iframe {
+            width: 100%;
+            min-height: 460px;
+            border: none;
+            border-radius: 10px;
+        }
+                 
+
+    </style>
+</head>
+<body>
+    <h1>WE LOVE IPL</h1>
+    <div class="marquee">
+        <marquee direction="left" scrollamount="10">TATA IPL 2024 SEASON 17</marquee>
+    </div>
+    <div class="container">
+        <img src="Teams/tata.png" alt="IPL Banner" width="500" height="300">
+        <input type="text" list="Teams" placeholder="Select Team">
+        <datalist id="Teams">
+            <option value="RCB"></option>
+            <option value="SRH"></option>
+            <option value="MI"></option>
+            <option value="CSK"></option>
+            <option value="RR"></option>
+            <option value="GT"></option>
+            <option value="PBKS"></option>
+            <option value="KKR"></option>
+            <option value="DC"></option>
+            <option value="LSG"></option>
+        </datalist>
+        <p>The Indian Premier League (IPL) stands as a monumental force in the cricketing world, transcending the boundaries of a mere sporting event. It uniquely blends cricket with music, dance, and glamour, captivating a diverse audience and expanding the sport's reach. Economically, the IPL is a powerhouse, generating substantial revenue through broadcasting rights, sponsorships, ticket sales, and tourism, significantly contributing to the Indian economy. Its global appeal draws top cricketing talent worldwide, fostering camaraderie and cross-cultural exchange among players. The league also nurtures emerging talent, offering young cricketers opportunities to shine alongside seasoned internationals.
+
+            Innovation thrives within the IPL, marked by new formats and an emphasis on aggressive, boundary-laden cricket. Fan engagement reaches new heights through interactive platforms and fan zones, enhancing the viewing experience. The IPL's impact extends to domestic cricket, revitalizing the sport at a grassroots level and elevating the standard of Indian domestic cricket. Culturally, the IPL has become a phenomenon, influencing fashion trends and language, and leaving an indelible mark on the collective consciousness. In essence, the IPL is not just a cricket tournament; it is a cultural juggernaut, a beacon of innovation, and a celebration of the spirit of cricket.</p>
+        <img src="https://blog.kheloo.com/wp-content/uploads/2023/05/IPL-Captains-from-2008-2023.jpeg" alt="IPL Captains" width="600" height="400">
+        <p>THESE ARE SOME CRAZIEST VIDEOS OF INDIAN PREMIER LEAGUE:</p>
+        <div class="video-container">
+            <iframe width="400" height="400" src="https://www.youtube.com/embed/EucxUBgzMEU" title="IPL - 2020 | All Team Theme Song | BGM KI DUNIYA" allowfullscreen></iframe>
+            <iframe width="400" height="400" src="https://www.youtube.com/embed/yIB3YIutCyo" title="Virat Kohli's heroic century in #SRHvRCB | TATA IPL 2023 on JioCinema" allowfullscreen></iframe>
+            <iframe width="400" height="300" src="https://www.youtube.com/embed/_SMkDYW60mM" title="The Super Champions Celebrations | Whistles, Dance and Cheers" allowfullscreen></iframe>
+        </div>
+        <p>THESE ARE THE IMAGES THAT REPRESENT THE PARTICULAR TEAMS:</p>
+        <p>EACH COLOR IS ASSIGNED AS PER THEIR JERSEY COLORS (EX: SRH-ORANGE, RCB-RED BALL)</p>
+        <p>CLICK ON THEM:</p>
+        <p>CLICK ON THE BELOW EACH BALL TO KNOW YOUR FAVORITE TEAM</p>
+        <div class="team-images">
+            <a href="save.html">
+                <img src="teams/SRH.jpeg" alt="SRH">
+            </a>
+            <a href="rcb.html">
+                <img src="Teams/rcb.jpeg" alt="RCB" style="margin-left: 60px;">
+            </a>
+            <a href="MUMBAI.HTML">
+                <img src="Teams/MUMBAI.jpeg" alt="MI">
+            </a>
+            <a href="PUNJAB.HTML">
+                <img src="Teams/PUNJAB.jpeg" alt="PBKS" style="margin-left: 60px;">
+            </a>
+            <a href="KKR.HTML">
+                <img src="Teams/KKR.jpeg" alt="KKR">
+            </a>
+            <a href="RR.HTML">
+                <img src="Teams/RR.jpeg" alt="RR" style="margin-left: 60px;">
+            </a>
+            <a href="CSK.HTML">
+                <img src="Teams/CSK.jpeg" alt="CSK">
+            </a>
+            <a href="GT.HTML">
+                <img src="Teams/GT.jpeg" alt="GT" style="margin-left: 60px;">
+            </a>
+            <a href="DELHI.HTML">
+                <img src="Teams/DELHI.jpeg" alt="DC">
+            </a>
+            <a href="LSG.HTML">
+                <img src="Teams/LSG.jpeg" alt="LSG" style="margin-left: 60px;">
+            </a>
+        </div>
+        <div class="live-scores">
+            <p>THESE ARE THE LIVE SCORE UPDATES THAT PROVIDED HERE:</p>
+            <div id="score-frame">
+                <iframe src="https://cwidget.crictimes.org/?b=d9d9d9&sb=434343&c=cccccc&a=434343&bo=434343&dc=000000&db=ffffff" scrolling="yes"></iframe>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 IPL Guru. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

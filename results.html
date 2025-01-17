@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+       .weather-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+       .weather-info {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-container">
+        <h1>Weather Information</h1>
+        <div class="weather-info">
+            <p>City: <span id="city"></span></p>
+            <p>Temperature: <span id="temperature"></span>°C</p>
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
+            <p>Description: <span id="description"></span></p>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const city = urlParams.get('city');
+        const temperature = urlParams.get('temperature');
+        const humidity = urlParams.get('humidity');
+        const windSpeed = urlParams.get('windSpeed');
+        const description = urlParams.get('description');
+
+        if (city && temperature && humidity && windSpeed && description) {
+            document.getElementById('city').textContent = city;
+            document.getElementById('temperature').textContent = temperature;
+            document.getElementById('humidity').textContent = humidity;
+            document.getElementById('wind-speed').textContent = windSpeed;
+            document.getElementById('description').textContent = description;
+
+            setBackground();
+
+            function setBackground() {
+                let imageUrl;
+                switch (description.toLowerCase()) {
+                    case 'clear':
+                        imageUrl = '/whether/clear.jpg';
+                        break;
+                    case 'clouds':
+                        imageUrl = '/whether/clouds.jpg';
+                        break;
+                    case 'rain':
+                        imageUrl = '/whether/rain.jpg';
+                        break;
+                    case 'drizzle':
+                        imageUrl = '/whether/drizzle.jpg';
+                        break;
+                    case 'thunderstorm':
+                        imageUrl = '/whether/thunderstorm.jpg';
+                        break;
+                    case 'snow':
+                        imageUrl = '/whether/snow.jpg';
+                        break;
+                    default:
+                        imageUrl = '/whether/default.jpg';
+                        break;
+                }
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+            }
+        } else {
+            alert('Invalid URL parameters');
+            document.body.style.backgroundImage = `url('/whether/default.jpg')`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* From Uiverse.io by barisdogansutcu */
+        button {
+        padding: 17px 40px;
+        border-radius: 50px;
+        cursor: pointer;
+        border: 0;
+        background-color: white;
+        box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: bold;
+        transition: all 0.5s ease;
+        }
+
+        button:hover {
+        letter-spacing: 3px;
+        background-color: hsl(261deg 80% 48%);
+        color: hsl(0, 0%, 100%);
+        box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+        }
+
+        button:active {
+        letter-spacing: 3px;
+        background-color: hsl(261deg 80% 48%);
+        color: hsl(0, 0%, 100%);
+        box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+        transform: translateY(10px);
+        transition: 100ms;
+        }
+
+        .social-container {
+        text-align: center; /* Center align heading and icons */
+        margin-top: 20px; /* Add spacing above */
+        }
+
+        .wrapper {
+        display: inline-flex;
+        list-style: none;
+        height: 120px;
+        padding-top: 20px; /* Adjust padding as needed */
+        font-family: "Poppins", sans-serif;
+        justify-content: center;
+        }
+
+        .wrapper .icon {
+        position: relative;
+        background: #fff;
+        border-radius: 50%;
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .tooltip {
+        position: absolute;
+        top: 0;
+        font-size: 14px;
+        background: #fff;
+        color: #fff;
+        padding: 5px 8px;
+        border-radius: 5px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .tooltip::before {
+        position: absolute;
+        content: "";
+        height: 8px;
+        width: 8px;
+        background: #fff;
+        bottom: -3px;
+        left: 50%;
+        transform: translate(-50%) rotate(45deg);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .icon:hover .tooltip {
+        top: -45px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        }
+
+        .wrapper .icon:hover span,
+        .wrapper .icon:hover .tooltip {
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper .facebook:hover,
+        .wrapper .facebook:hover .tooltip,
+        .wrapper .facebook:hover .tooltip::before {
+        background: #1877f2;
+        color: #fff;
+        }
+
+        .wrapper .twitter:hover,
+        .wrapper .twitter:hover .tooltip,
+        .wrapper .twitter:hover .tooltip::before {
+        background: #1da1f2;
+        color: #fff;
+        }
+
+        .wrapper .instagram:hover,
+        .wrapper .instagram:hover .tooltip,
+        .wrapper .instagram:hover .tooltip::before {
+        background: #e4405f;
+        color: #fff;
+        }
+
+        .wrapper .linkedin:hover,
+        .wrapper .linkedin:hover .tooltip,
+        .wrapper .linkedin:hover .tooltip::before {
+        background: #0077b5;
+        color: #fff;
+        }
+
+        .wrapper .github:hover,
+        .wrapper .github:hover .tooltip,
+        .wrapper .github:hover .tooltip::before {
+        background: #333;
+        color: #fff;
+        }
+        .h-6 w-6 mr-2 {
+            border-radius: 50%;
+        }
+
+    </style>    
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 fixed top-0 w-full py-4 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-white text-lg font-semibold flex items-center">
+                <img src="logo.jpg" alt="Icon" class="h-6 w-6 mr-2">
+                Poorna Ajay
+            </a>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white text-lg font-semibold"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about" class="text-white hover:text-gray-300"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills" class="text-white hover:text-gray-300"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects" class="text-white hover:text-gray-300"><i class="fas fa-briefcase"></i> Projects</a></li>
+                <li><a href="#contact" class="text-white hover:text-gray-300"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>            
+        </div>
+    </nav>
+    
+
+    <div id="home" class="py-16 pt-24"> <!-- Added pt-24 to offset for fixed navbar -->
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2">
+                    <h1 class="text-4xl font-bold mt-2">Hi, I’m <span class="text-blue-500">Poorna</span><br>
+                        <span class="header-caption">
+                            <span class="cd-headline clip is-full-width">
+                                <span>a </span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Software Developer.</b>
+                                </span>
+                            </span>
+                        </span>
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-700">I am an experienced Web Developer with skills in HTML, CSS, JavaScript, Python, and Java. I also have a strong background in server management.</p>
+                    <br>
+                    <br>
+                    <div class="social-container">
+                        <h2><b>Find Me On</b></h2>
+                        <ul class="wrapper">
+                            <a href="https://www.facebook.com/share/X1y8TbwBegWacKQh/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
+                            <li class="icon facebook">
+                                   
+                              <span class="tooltip">Facebook</span>
+                              <svg viewBox="0 0 320 512" height="1.2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                              </svg>
+                            </li>
+                            </a>
+                            <!-- <a href="https://x.com/poorna90126" target="_blank" rel="noopener noreferrer">
+                            <li class="icon twitter">
+                              <span class="tooltip">Twitter</span>
+                              <svg height="1.8em" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
+                              </svg>
+                            </li>
+                            </a> -->
+                            <a href="https://www.instagram.com/lovely_poorna_?igsh=MTE5ZXplZG54ZGF4MQ==" target="_blank" rel="noopener noreferrer">
+                            <li class="icon instagram">
+                              <span class="tooltip">Instagram</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                              </svg>
+                            </li>
+                            </a>
+                            <a href="https://www.linkedin.com/in/purna-ajay-0a351428b/" target="_blank" rel="noopener noreferrer">
+                            <li class="icon linkedin">
+                              <span class="tooltip">LinkedIn</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1.5 0C.672 0 0 .672 0 1.5v13c0 .828.672 1.5 1.5 1.5h13c.828 0 1.5-.672 1.5-1.5v-13C16 .672 15.328 0 14.5 0h-13zm1.063 14H1.5v-8h1.063v8zm-.531-9.172a.726.726 0 0 1-.724-.724c0-.4.324-.724.724-.724s.724.324.724.724a.726.726 0 0 1-.724.724zM14.5 14h-1.063v-4.455c0-1.058-.02-2.416-1.475-2.416-1.476 0-1.701 1.152-1.701 2.344V14H10.5v-8h1.012v1.096h.014c.154-.292.532-.601 1.098-.601 1.173 0 1.388.774 1.388 1.778V14z"></path>
+                              </svg>
+                            </li>
+                            </a>
+                            <a href="https://github.com/POORNA-12" target="_blank" rel="noopener noreferrer">
+                            <li class="icon github">
+                              <span class="tooltip">GitHub</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 .198a8 8 0 0 0-2.53 15.586c.4.074.547-.174.547-.387 0-.19-.007-.826-.012-1.5-2.224.482-2.698-1.07-2.698-1.07-.364-.925-.888-1.17-.888-1.17-.724-.494.055-.485.055-.485.803.056 1.225.826 1.225.826.712 1.221 1.868.868 2.322.664.072-.516.278-.868.506-1.067-1.77-.2-3.64-.885-3.64-3.942 0-.87.311-1.582.824-2.143-.083-.2-.358-1.008.078-2.097 0 0 .67-.215 2.2.82a7.622 7.622 0 0 1 2-.27c.68 0 1.366.092 2 .27 1.53-1.035 2.2-.82 2.2-.82.436 1.089.161 1.897.078 2.097.514.561.824 1.273.824 2.143 0 3.066-1.87 3.741-3.64 3.94.286.247.54.734.54 1.48 0 1.07-.012 1.935-.012 2.197 0 .216.144.464.548.387A8 8 0 0 0 8 .198z"></path>
+                              </svg>
+                            </li>
+                            </a>
+                          </ul>
+                          <ul>
+                            <a href="#">
+                                <button>Resume</button>
+                            </a>
+                            
+                          </ul>  
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-6 lg:mt-0">
+                    <img src="1.png" alt="Personal Portfolio" class="rounded-full w-3/4 mx-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold mb-8">About Me</h2>
+            <p class="text-lg">Hello! I'm <strong>POORNA AJAY</strong>, a third Year Engineering Student with a passion for Software Engineering. I'm excited to share my journey, skills, and projects with you.</p>
+
+            <p><b>A bit about me:</b></p>
+            <p>I'm a curious and driven individual with a strong desire to learn and grow. During my time at <strong>Krishna University</strong>, I developed a solid foundation in programming languages like <strong> Python,java</strong> and technical skills like <strong>HTML, CSS , sql</strong>. I have a keen interest in Full-Stack Development and Data Analysist. These various technologies helped me develop my Personal Portfolio and other projects in our college. I'm eager to apply my knowledge and skills to real-world problems and make a meaningful impact.</p>
+
+            <p><b>My goals:</b></p>
+            <ul>
+                <li><strong>To secure a challenging role in Full-Stack Development where I can grow and contribute to innovative projects.</strong></li>
+                <li><strong>To continuously develop my skills and stay up-to-date with industry trends.</strong></li>
+                <li><strong>To collaborate with like-minded individuals and build meaningful connections.</strong></li>
+            </ul>
+
+            <p>Feel free to explore my portfolio, and let's connect!</p>
+
+        </div>
+    </section>
+    
+    <section id="skills" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold mb-8">Skills & Certifications</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">HTML</span>
+                    <a href="certifications/c1.html"  class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">CSS</span>
+                    <a href="certifications/c2.html"  class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">JAVASCRIPT</span>
+                    <a href="certifications/c6.html" class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">PYTHON</span>
+                    <a href="certifications/c3.html"  class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">SQL</span>
+                    <a href="certifications/c4.html"  class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-between items-center">
+                    <span class="text-center  text-xl">SOFTSKILS</span>
+                    <a href="certifications/c5.html"  class="flex items-center text-blue-500 hover:text-blue-700">
+                        <span class="mr-1">View</span>
+                        <span class="text-2xl">&#8594;</span> <!-- Enlarged arrow -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </section>
+    <section id="skills" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold mb-8">Tools & Services</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center  text-2xl">Git</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center text-2xl">GitHub</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center  text-2xl">Vs-Code</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center  text-2xl">Netlify</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center  text-2xl">Spreedsheets</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center  text-2xl">OOPS</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center text-2xl">OS</span>
+                </li>
+                <li class="bg-white rounded-lg p-4 shadow-md flex justify-center items-center">
+                    <span class="text-center text-2xl">DBMS</span>
+                </li>
+            </ul>
+        </div>   
+    </section>
+    
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Portfolio</h3>
+                    <p>Information about myself, showcasing my skills and projects.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="https://github.com/POORNA-12/Abhaya--public-safety-portal" class="text-black no-underline">
+                    <h3 class="text-xl font-semibold mb-2">Abhaya-public safety portal</h3>
+                    <p>Abhaya can help anyone in any situation...</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="https://github.com/POORNA-12/Deal-Zone" class="text-black no-underline">
+                    <h3 class="text-xl font-semibold mb-2">Deal Zone</h3>
+                    <p>Student where can buy and purchase the second hans things..</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="KU/index.html" class="text-black no-underline">
+                    <h3 class="text-xl font-semibold mb-2">Student notes Portal </h3>
+                    <p>Basic html project Students can dowload the notes from this portal.</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="calculator.html" class="text-black no-underline">
+                        <h3 class="text-xl font-semibold mb-2">Calculator</h3>
+                        <p>A simple calculator that performs basic arithmetic operations.</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="whether.html" class="text-black no-underline">
+                        <h3 class="text-xl font-semibold mb-2">Weather Project</h3>
+                        <p>This project displays the actual weather of the city you entered.</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="ANANDH/index.html" class="text-black no-underline">
+                        <h3 class="text-xl font-semibold mb-2">IPL</h3>
+                        <p>Here you can see the latest updates on IPL.</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="movie/index.html" class="text-black no-underline">
+                        <h3 class="text-xl font-semibold mb-2">Movies</h3>
+                        <p>Here you can watch & download movies and stay updated on events.</p>
+                    </a>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <a href="movie/music player.html" class="text-black no-underline">
+                        <h3 class="text-xl font-semibold mb-2">Music Player</h3>
+                        <p>Here you can listen to and download music from movies.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <form id="contact-form" class="py-8 bg-gray-500 text-white" action="https://formspree.io/f/xldrdzje" method="POST"> <!-- Changed footer color -->
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold mb-4">Send a message</h2>
+            <div class="mb-4">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" name="name" id="name" class="bg-gray-600 text-white py-2 px-4 rounded-lg w-full" placeholder="Name" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" name="email" id="email" class="bg-gray-600 text-white py-2 px-4 rounded-lg w-full" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="sr-only">Message</label>
+                <textarea name="message" id="message" class="bg-gray-600 text-white py-2 px-4 rounded-lg w-full h-32" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Send</button>
+        </div>
+    </form>
+
+    <footer id="contact" class="py-8 bg-gray-500 text-white"> <!-- Changed footer color -->
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
+            <p>Email: poornapoorna39@gmail.com</p>
+            <p>Phone: 91331****7</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        .title {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             background-color: #f8f9fa; 
+             padding: 10px 20px;
+             font-size: 24px; 
+             font-weight: bold; 
+             z-index: 999; 
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 500px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #4285f4;
+        }
+
+        .search-button {
+            margin-top: 10px;
+            background-color: #4285f4;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather App</h1>
+
+    <div class="search-container">
+        <form id="searchForm">
+            <input type="text" id="cityInput" class="search-input" placeholder="Explore Global Weather: Find Your City's Forecast Here!">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <script>
+        const apiKey = 'f679c221101a7509afba9743070335c6';
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+    
+        const searchForm = document.getElementById('searchForm');
+    
+        searchForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const cityInput = document.getElementById('cityInput').value.trim();
+            try {
+                const data = await fetchWeather(cityInput);
+                navigateToResultPage(data);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                alert('Failed to fetch weather data. Please try again.');
+            }
+        });
+    
+        async function fetchWeather(city) {
+            const response = await fetch(`${apiUrl}?q=${city}&appid=${apiKey}&units=metric`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }
+    
+        function navigateToResultPage(data) {
+            const { name, main, wind, weather } = data;
+            const { temp, humidity } = main;
+            const { speed } = wind;
+            const description = weather[0].description;
+    
+            const queryParams = new URLSearchParams({
+                city: name,
+                temperature: temp,
+                humidity: humidity,
+                windSpeed: speed,
+                description: description
+            });
+    
+            window.location.href = `results.html?${queryParams.toString()}`;
+        }
+    </script>
+    
+</body>
+</html>

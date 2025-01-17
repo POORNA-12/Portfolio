@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to right, #ff7979, #ffd1dc);
+            animation: animateBackground 20s linear infinite;
+        }
+
+        @keyframes animateBackground {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 50% 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .project-heading {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: animateHeading 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes animateHeading {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .calculator {
+            position: relative;
+            width: 300px;
+            margin: 50px auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            overflow: hidden;
+            animation: animateBorder 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes animateBorder {
+            0% {
+                border-width: 2px;
+            }
+            100% {
+                border-width: 10px;
+            }
+        }
+
+        .calculator input[type="text"] {
+            width: calc(100% - 20px);
+            height: 40px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
+        .calculator input[type="button"] {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        .calculator input[type="button"]:hover {
+            background-color: #e0e0e0;
+        }
+
+        .calculator input[type="button"]:active {
+            background-color: #ccc;
+        }
+
+        .calculator .row {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="project-heading">Calculator Project</h1>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="row">
+            <input type="button" value="7" onclick="appendToDisplay('7')">
+            <input type="button" value="8" onclick="appendToDisplay('8')">
+            <input type="button" value="9" onclick="appendToDisplay('9')">
+            <input type="button" value="/" onclick="appendToDisplay('/')">
+        </div>
+        <div class="row">
+            <input type="button" value="4" onclick="appendToDisplay('4')">
+            <input type="button" value="5" onclick="appendToDisplay('5')">
+            <input type="button" value="6" onclick="appendToDisplay('6')">
+            <input type="button" value="*" onclick="appendToDisplay('*')">
+        </div>
+        <div class="row">
+            <input type="button" value="1" onclick="appendToDisplay('1')">
+            <input type="button" value="2" onclick="appendToDisplay('2')">
+            <input type="button" value="3" onclick="appendToDisplay('3')">
+            <input type="button" value="-" onclick="appendToDisplay('-')">
+        </div>
+        <div class="row">
+            <input type="button" value="0" onclick="appendToDisplay('0')">
+            <input type="button" value="." onclick="appendToDisplay('.')">
+            <input type="button" value="=" onclick="calculate()">
+            <input type="button" value="+" onclick="appendToDisplay('+')">
+        </div>
+        <div class="row">
+            <input type="button" value="C" onclick="clearDisplay()">
+            <input type="button" value="←" onclick="backspace()">
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function backspace() {
+            var currentValue = document.getElementById("display").value;
+            document.getElementById("display").value = currentValue.slice(0, -1);
+        }
+
+        function calculate() {
+            var expression = document.getElementById("display").value;
+            try {
+                var result = eval(expression);
+                if (isNaN(result) || !isFinite(result)) {
+                    throw "Invalid expression";
+                }
+                document.getElementById("display").value = result;
+            } catch (error) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+        document.addEventListener("keydown", function(event) {
+            var key = event.key;
+            var validKeys = "0123456789./*-+=Backspace";
+            if (validKeys.indexOf(key) !== -1) {
+                if (key === "Backspace") {
+                    backspace();
+                } else if (key === "=" || key === "Enter") {
+                    calculate();
+                } else {
+                    appendToDisplay(key);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
